@@ -33,10 +33,10 @@ project/
   └── final_REAL_FINAL_v2.py
 ```
 
-![[Pasted image 20241104162738.png]]
+![圖片描述](./images/Pasted%20image%2020241104162738.png)
 這麼多的final版 到底哪一版才是final?
 
-![[Pasted image 20241104162830.png]]
+![圖片描述2](./images/Pasted%20image%2020241104162830.png)
 ### 1.2.2 版本控制能解決的問題：
 
 1. **追蹤程式碼變更**
@@ -99,43 +99,65 @@ project/
 ### 1.3.3 簡單的展示一下Git實際操作
 
 假設我有一個SAP自動登入程式的專案 我寫了一段程式碼 並且已經commit過一次 目前正在主分支"main" 且位於C1的節點上
-![[Pasted image 20241105113904.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105113904.png)
 
 我初步完成了這支自動化程式給User做使用後 我要做一個保存紀錄這個完成的版本 所以我又commit了一次
+
 `git commit`
-![[Pasted image 20241105114110.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105114110.png)
 
 此時C2節點位置的程式已經給User做使用了 User提出希望還能再新增幾個功能 所以我保持原有的程式繼續給User使用 我另建一個分支做新功能開發
+
 `git checkout -b feature`
-![[Pasted image 20241105114738.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105114738.png)
 
 我在今天下班前 完成了其中一個功能 我要做一個儲存且記錄 所以我commit一次
+
 `git commit -m "feat: 添加用戶不需維護帳號密碼的功能"`
-![[Pasted image 20241105115241.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105115241.png)
 
 結果隔天突然收到User 說程式有Bug 需要修復 所以我得退回主分支的main 再弄一個分支去修復bug
+
 `git switch main`
+
 `git checkout -b bugfix`
-![[Pasted image 20241105132121.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105132121.png)
 
 我修復好bug後 做commit 並切回到主分支 把修復的版本的分支合併到主分支
+
 `git commit -m "fix: 緊急修復bug"`
-![[Pasted image 20241105132512.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105132512.png)
+
 `git switch main`
+
 `git merge bugfix --no-ff`
-![[Pasted image 20241105132613.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105132613.png)
 
 然後我切回feature分支繼續開發剩下的功能 並完成程式後做commit
+
 `git switch feature`
+
 `git commit -m "feat: 添加自動更新密碼的功能"`
-![[Pasted image 20241105132819.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105132819.png)
 
 最後我切回主分支去更新User要求的功能到程式上
+
 `git swtich main`
+
 `git merge feature`
-![[Pasted image 20241105132946.png]]
+
+![圖片描述](./images/Pasted%20image%2020241105132946.png)
 
 最後刪除bugfix與feature分支
+
 `git branch -d feature bugfix`
 
 # 2. Git 基礎設置
